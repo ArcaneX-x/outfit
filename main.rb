@@ -1,6 +1,5 @@
 require_relative 'lib/outfit'
 require_relative 'lib/wardrobe'
-require 'byebug'
 
 wardrobe = Wardrobe.from_dir(File.join(__dir__, 'data'))
 

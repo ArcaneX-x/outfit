@@ -13,15 +13,15 @@ class Wardrobe
         temp_range: Range.new(*lines[2].delete('(').split(',').map(&:to_i))
       )
     end
-    new(collection)
+    self.new(collection)
   end
 
   def types_outfit
     @wardrobe.map(&:wear_type).uniq
   end
 
-  def outfit_one_type(wear_type)
-    @wardrobe.select { |wear| wear.wear_type == wear_type }
+  def outfit_one_type(types_outfit)
+    @wardrobe.select { |wear| wear.wear_type == types_outfit }
   end
 
   def outfit(temprature)
