@@ -1,8 +1,5 @@
 class Wardrobe
-  def initialize(wardrobe)
-    @wardrobe = wardrobe
-  end
-
+  attr_reader :wardrobe
   def self.from_dir(path)
     collection = Dir[File.join(path, '*.txt')]
                  .map do |path|
@@ -13,7 +10,11 @@ class Wardrobe
         temp_range: Range.new(*lines[2].delete('(').split(',').map(&:to_i))
       )
     end
-    self.new(collection)
+    new(collection)
+  end
+
+  def initialize(wardrobe)
+    @wardrobe = wardrobe
   end
 
   def types_outfit
